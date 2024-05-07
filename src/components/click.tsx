@@ -19,8 +19,7 @@ export default function Click() {
           ()=> (click === 0 ? setClick(0) : setClick(click -1))
           }>
           Go Back</button>
-        </div>
-          
+        </div>          
       <Alert>
           <Terminal className="h-4 w-4" />
           <AlertTitle>Click Counter</AlertTitle>
