@@ -1,12 +1,12 @@
 import Image from "next/image";
-import Click from "../components/click"
-import Books from "../components/books";
+
+import Books from "../components/booksCard";
 
 
 export default function Home() {
   return (
     <>
-    <Click /> 
+    <h1>Main Page</h1>
   </>
   );
 }

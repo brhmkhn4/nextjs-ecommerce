@@ -8,6 +8,7 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
+import Link from 'next/link';
 
   interface IBook {
     id: number,
@@ -16,39 +17,43 @@ import {
     available: boolean
   } 
 
-  const Books = async () => {
+  const BooksCard = async () => {
   
     let data = await fetch("https://simple-books-api.glitch.me/books");
     let bookData: IBook[] = await data.json();
 
-      
-  return(<div className="grid grid-flow-col grid-cols-3 gap-4">
+        
+  return(<div className="grid grid-cols-3 gap-5 p-5 justify-center items-center">
             {bookData.map((book)=>{    
+              let stock: string = "";
+
+              if (book.available === true) {
+                stock = "Yes"
+              } else { stock = "Not Available"}
               return(
                 <div>
-                  <div key={book.id}>
+                  <Link href={`/books/${book.id}`}>
+                  <div className="bg-blue-200 shadow-sm hover:shadow-md border-opacity-40 border-green-500  hover:bg-blue-300 mx-[40px] " key={book.id} >
+                    
                       <Card>
                       <CardHeader>
-                      <CardTitle>{book.name}</CardTitle>
-                      <CardDescription>{book.type}</CardDescription>
+                      <CardTitle>Name: {book.name}</CardTitle>
+                      <CardDescription>Type: {book.type}</CardDescription>
                       </CardHeader>
                       <CardContent>
-                      <p>{book.available}</p>
+                      <p>Available: {stock}</p>
                       </CardContent>
                       <CardFooter>
                       <p>Card Footer</p>
                       </CardFooter>
                       </Card>
                   </div>
+                  </Link>
                 </div>)
             })}
             </div>
           )
-            
-             
-  }
+      };
+ 
 
-      
-
-
-export default Books;
+export default BooksCard;

@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Books from '@/components/books'
+import BooksCard from '@/components/booksCard'
 
 function BookPage() {
   return (
     <>
-    < Books />
+    < BooksCard />
     </>
   )
 }
