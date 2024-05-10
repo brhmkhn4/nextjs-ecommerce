@@ -37,6 +37,18 @@ export default function Header() {
         >
           Login
         </Link>
+        <Link
+          href="/dashboard"
+          className="bg-blue-500 text-white px-[40px] py-[5px] rounded hover:bg-blue-400 hover:text-black "
+        >
+          Dashboard
+        </Link>
+        <Link
+          href="/order"
+          className="bg-blue-500 text-white px-[40px] py-[5px] rounded hover:bg-blue-400 hover:text-black "
+        >
+          Order
+        </Link>
       </div>
       <div>
         <ModeToggle />
